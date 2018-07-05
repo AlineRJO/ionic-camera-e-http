@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+  <ion-searchbar [(ngModel)] = "numFoto" placeholder="Buscar n° da foto"
+    (ionInput)="filterItems(2)">
+  </ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+
+    
+
+  <div *ngFor = "let d of temp">
+      <ion-card>          
+          <ion-card-content>
+            <ion-card-title>                
+                <ion-row col-12> 
+                  <ion-col col-5>
+                      <img src="{{d.thumbnailUrl}}" class="size"/>  
+                  </ion-col>
+                  <ion-col col-7 class="Vcenter" >                       
+                      Foto: {{ d.id }}
+                    </ion-col>
+                </ion-row>                
+              </ion-card-title>
+              <img src="{{d.url}}"/>
+              <p>Album: {{d.albumId}}</p>
+              <p>{{ d.title }} </p>
+          </ion-card-content>
+      </ion-card>
+  </div>
+
+    <ion-infinite-scroll (ionInfinite)="scroll($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

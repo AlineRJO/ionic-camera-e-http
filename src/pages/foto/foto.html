@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Salvar Foto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   
+  <div class="fundo size VHcenter" *ngIf="!image" > 
+    <ion-row>
+       <ion-col col-12><h2>Insira uma foto</h2></ion-col> 
+    </ion-row>
+    
+  </div>
+  <img [src]="image" *ngIf="image" class="size"/>
+
+  <button ion-button block color="primary" (click)="tirarFoto()">Usar Camera</button>  
+  <br>
+  <button ion-button block (click)="galeria()">Galeria de Fotos</button>  
+
+    
+</ion-content>

@@ -1,0 +1,45 @@
+import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Camera } from '@ionic-native/camera';
+import { HttpModule } from '@angular/http';
+
+import { MyApp } from './app.component';
+import { FotoPage } from '../pages/foto/foto';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AuthHomeProvider } from '../providers/auth-home/auth-home';
+
+
+@NgModule({
+  declarations: [
+    MyApp,
+    FotoPage,
+    HomePage,
+    TabsPage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    HttpModule
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    FotoPage,
+    HomePage,
+    TabsPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    AuthHomeProvider
+  ]
+})
+export class AppModule {}
